@@ -56,6 +56,8 @@ steps:
       - npm install -g node-gyp
       - apk add build-base git libffi-dev python3 python3-dev
       - ln -sf python3 /usr/bin/python
+      - python3 -m ensurepip
+      - pip3 install --no-cache --upgrade pip setuptools
       - cd opencti-platform/opencti-graphql
       - yarn install
       - yarn build
