@@ -18,7 +18,7 @@ import {
 import {
   buildPagination,
   computeAverage,
-  extractEntityRepresentative,
+  extractEntityRepresentativeName,
   extractIdsFromStoreObject,
   fillTimeSeries,
   generateCreateMessage,
@@ -586,7 +586,7 @@ export const distributionHistory = async (context, user, types, args) => {
     await convertAggregateDistributions(context, user, limit, orderingFunction, distributionData)
       .then((hits) => {
         result = hits.map((hit) => ({
-          label: hit.entity.name ?? extractEntityRepresentative(hit.entity),
+          label: hit.entity.name ?? extractEntityRepresentativeName(hit.entity),
           value: hit.value,
           entity: hit.entity,
         }));
@@ -622,7 +622,7 @@ export const distributionEntities = async (context, user, types, args) => {
     await convertAggregateDistributions(context, user, limit, orderingFunction, distributionData)
       .then((hits) => {
         result = hits.map((hit) => ({
-          label: hit.entity.name ?? extractEntityRepresentative(hit.entity),
+          label: hit.entity.name ?? extractEntityRepresentativeName(hit.entity),
           value: hit.value,
           entity: hit.entity,
         }));

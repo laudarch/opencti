@@ -254,7 +254,9 @@ const toolBarContainersQuery = graphql`
         node {
           id
           entity_type
-          representative
+          representative {
+            main
+          }
         }
       }
     }
@@ -707,7 +709,7 @@ class ToolBar extends Component {
       .then((data) => {
         const elements = data.containers.edges.map((e) => e.node);
         const containers = elements.map((n) => ({
-          label: n.representative,
+          label: n.representative.main,
           type: n.entity_type,
           value: n.id,
         }));

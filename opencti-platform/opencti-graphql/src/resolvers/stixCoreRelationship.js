@@ -38,6 +38,7 @@ import { batchCreators } from '../domain/user';
 import { stixCoreRelationshipOptions } from '../schema/stixCoreRelationship';
 import { addOrganizationRestriction, batchObjectOrganizations, removeOrganizationRestriction } from '../domain/stix';
 import { stixCoreObjectsExportPush } from '../domain/stixCoreObject';
+import { batchExtractRelationshipRepresentativeCreators } from "../database/utils";
 
 const loadByIdLoader = batchLoader(elBatchIds);
 const createdByLoader = batchLoader(batchCreatedBy);
@@ -52,6 +53,7 @@ const reportsLoader = batchLoader(batchReports);
 const casesLoader = batchLoader(batchCases);
 const batchOrganizationsLoader = batchLoader(batchObjectOrganizations);
 const creatorsLoader = batchLoader(batchCreators);
+const representativeLoader = batchLoader(batchExtractRelationshipRepresentativeCreators);
 
 const stixCoreRelationshipResolvers = {
   Query: {
@@ -71,6 +73,7 @@ const stixCoreRelationshipResolvers = {
     from: (rel, _, context) => loadByIdLoader.load(rel.fromId, context, context.user),
     to: (rel, _, context) => loadByIdLoader.load(rel.toId, context, context.user),
     toStix: (rel, _, context) => stixLoadByIdStringify(context, context.user, rel.id),
+    representative: (rel, _, context) => representativeLoader.load(rel, context, context.user),
     creators: (rel, _, context) => creatorsLoader.load(rel.creator_id, context, context.user),
     createdBy: (rel, _, context) => createdByLoader.load(rel.id, context, context.user),
     objectMarking: (rel, _, context) => markingDefinitionsLoader.load(rel.id, context, context.user),

@@ -84,6 +84,7 @@ export type AdministrativeArea = BasicObject & Location & StixCoreObject & StixD
   pendingFiles?: Maybe<FileConnection>;
   precision?: Maybe<Scalars['Float']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -378,6 +379,7 @@ export type Artifact = BasicObject & HashedObservable & StixCoreObject & StixCyb
   payload_bin?: Maybe<Scalars['String']>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -598,6 +600,7 @@ export type AttackPattern = BasicObject & StixCoreObject & StixDomainObject & St
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -928,6 +931,7 @@ export type AutonomousSystem = BasicObject & StixCoreObject & StixCyberObservabl
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   rir?: Maybe<Scalars['String']>;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -1218,6 +1222,7 @@ export type BankAccount = BasicObject & StixCoreObject & StixCyberObservable & S
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -1431,6 +1436,7 @@ export type Campaign = BasicObject & StixCoreObject & StixDomainObject & StixObj
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -1771,7 +1777,7 @@ export type Case = {
   pendingFiles?: Maybe<FileConnection>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -1997,7 +2003,7 @@ export type CaseIncident = BasicObject & Case & Container & StixCoreObject & Sti
   rating?: Maybe<Scalars['Int']>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   response_types?: Maybe<Array<Scalars['String']>>;
   revoked: Scalars['Boolean'];
   severity?: Maybe<Scalars['String']>;
@@ -2297,7 +2303,7 @@ export type CaseRfi = BasicObject & Case & Container & StixCoreObject & StixDoma
   priority?: Maybe<Scalars['String']>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   severity?: Maybe<Scalars['String']>;
   spec_version: Scalars['String'];
@@ -2593,7 +2599,7 @@ export type CaseRft = BasicObject & Case & Container & StixCoreObject & StixDoma
   priority?: Maybe<Scalars['String']>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   severity?: Maybe<Scalars['String']>;
   spec_version: Scalars['String'];
@@ -2964,6 +2970,7 @@ export type Channel = BasicObject & StixCoreObject & StixDomainObject & StixObje
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -3254,6 +3261,7 @@ export type City = BasicObject & Location & StixCoreObject & StixDomainObject & 
   pendingFiles?: Maybe<FileConnection>;
   precision?: Maybe<Scalars['Float']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -3545,7 +3553,7 @@ export type Container = {
   parent_types: Array<Maybe<Scalars['String']>>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -3860,6 +3868,7 @@ export type Country = BasicObject & Location & StixCoreObject & StixDomainObject
   precision?: Maybe<Scalars['Float']>;
   region?: Maybe<Region>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -4109,6 +4118,7 @@ export type CourseOfAction = BasicObject & StixCoreObject & StixDomainObject & S
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -4407,6 +4417,7 @@ export type CryptocurrencyWallet = BasicObject & StixCoreObject & StixCyberObser
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -4590,6 +4601,7 @@ export type CryptographicKey = BasicObject & StixCoreObject & StixCyberObservabl
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -4781,6 +4793,7 @@ export type DataComponent = BasicObject & StixCoreObject & StixDomainObject & St
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -5029,6 +5042,7 @@ export type DataSource = BasicObject & StixCoreObject & StixDomainObject & StixO
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -5333,6 +5347,7 @@ export type Directory = BasicObject & StixCoreObject & StixCyberObservable & Sti
   path_enc?: Maybe<Scalars['String']>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -5549,6 +5564,7 @@ export type DomainName = BasicObject & StixCoreObject & StixCyberObservable & St
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -5763,6 +5779,7 @@ export type EmailAddr = BasicObject & StixCoreObject & StixCyberObservable & Sti
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -5953,6 +5970,7 @@ export type EmailMessage = BasicObject & StixCoreObject & StixCyberObservable & 
   pendingFiles?: Maybe<FileConnection>;
   received_lines?: Maybe<Array<Maybe<Scalars['String']>>>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -6145,6 +6163,7 @@ export type EmailMimePartType = BasicObject & StixCoreObject & StixCyberObservab
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -6383,6 +6402,7 @@ export type Event = BasicObject & StixCoreObject & StixDomainObject & StixObject
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -6861,7 +6881,7 @@ export type Feedback = BasicObject & Case & Container & StixCoreObject & StixDom
   rating?: Maybe<Scalars['Int']>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -7293,7 +7313,7 @@ export type Grouping = BasicObject & Container & StixCoreObject & StixDomainObje
   pendingFiles?: Maybe<FileConnection>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -7587,6 +7607,7 @@ export type HashedObservable = {
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -7763,6 +7784,7 @@ export type Hostname = BasicObject & StixCoreObject & StixCyberObservable & Stix
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -7947,6 +7969,7 @@ export type IPv4Addr = BasicObject & StixCoreObject & StixCyberObservable & Stix
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -8133,6 +8156,7 @@ export type IPv6Addr = BasicObject & StixCoreObject & StixCyberObservable & Stix
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -8357,6 +8381,7 @@ export type Identity = {
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
   spec_version: Scalars['String'];
@@ -8617,6 +8642,7 @@ export type Incident = BasicObject & StixCoreObject & StixDomainObject & StixObj
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   severity?: Maybe<Scalars['String']>;
   source?: Maybe<Scalars['String']>;
@@ -8928,6 +8954,7 @@ export type Indicator = BasicObject & StixCoreObject & StixDomainObject & StixOb
   pattern_version?: Maybe<Scalars['String']>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -9256,6 +9283,7 @@ export type Individual = BasicObject & Identity & StixCoreObject & StixDomainObj
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
   spec_version: Scalars['String'];
@@ -9563,6 +9591,7 @@ export type Infrastructure = BasicObject & StixCoreObject & StixDomainObject & S
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -9887,6 +9916,7 @@ export type IntrusionSet = BasicObject & StixCoreObject & StixDomainObject & Sti
   pendingFiles?: Maybe<FileConnection>;
   primary_motivation?: Maybe<Scalars['String']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   resource_level?: Maybe<Scalars['String']>;
   revoked: Scalars['Boolean'];
   secondary_motivations?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -10356,6 +10386,7 @@ export type Language = BasicObject & StixCoreObject & StixDomainObject & StixObj
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -10620,6 +10651,7 @@ export type Location = {
   pendingFiles?: Maybe<FileConnection>;
   precision?: Maybe<Scalars['Float']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -10965,6 +10997,7 @@ export type MacAddr = BasicObject & StixCoreObject & StixCyberObservable & StixO
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -11162,6 +11195,7 @@ export type Malware = BasicObject & StixCoreObject & StixDomainObject & StixObje
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -11423,6 +11457,7 @@ export type MalwareAnalysis = BasicObject & StixCoreObject & StixDomainObject & 
   pendingFiles?: Maybe<FileConnection>;
   product: Scalars['String'];
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   result?: Maybe<Scalars['String']>;
   result_name: Scalars['String'];
   revoked: Scalars['Boolean'];
@@ -11883,6 +11918,7 @@ export type MediaContent = BasicObject & StixCoreObject & StixCyberObservable & 
   pendingFiles?: Maybe<FileConnection>;
   publication_date?: Maybe<Scalars['DateTime']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -13914,6 +13950,7 @@ export type Mutex = BasicObject & StixCoreObject & StixCyberObservable & StixObj
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -14105,6 +14142,7 @@ export type Narrative = BasicObject & StixCoreObject & StixDomainObject & StixOb
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -14354,6 +14392,7 @@ export type NetworkTraffic = BasicObject & StixCoreObject & StixCyberObservable 
   pendingFiles?: Maybe<FileConnection>;
   protocols?: Maybe<Array<Maybe<Scalars['String']>>>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   src_byte_count?: Maybe<Scalars['Int']>;
   src_packets?: Maybe<Scalars['Int']>;
@@ -14559,7 +14598,7 @@ export type Note = BasicObject & Container & StixCoreObject & StixDomainObject &
   pendingFiles?: Maybe<FileConnection>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -14976,7 +15015,7 @@ export type ObservedData = BasicObject & Container & StixCoreObject & StixDomain
   pendingFiles?: Maybe<FileConnection>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -15291,7 +15330,7 @@ export type Opinion = BasicObject & Container & StixCoreObject & StixDomainObjec
   pendingFiles?: Maybe<FileConnection>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -15633,6 +15672,7 @@ export type Organization = BasicObject & Identity & StixCoreObject & StixDomainO
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
   sectors?: Maybe<SectorConnection>;
@@ -15985,6 +16025,7 @@ export type PaymentCard = BasicObject & StixCoreObject & StixCyberObservable & S
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -16170,6 +16211,7 @@ export type PhoneNumber = BasicObject & StixCoreObject & StixCyberObservable & S
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -16363,6 +16405,7 @@ export type Position = BasicObject & Location & StixCoreObject & StixDomainObjec
   postal_code?: Maybe<Scalars['String']>;
   precision?: Maybe<Scalars['Float']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -16657,6 +16700,7 @@ export type Process = BasicObject & StixCoreObject & StixCyberObservable & StixO
   pid?: Maybe<Scalars['Int']>;
   priority?: Maybe<Scalars['String']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   serviceDlls?: Maybe<StixFileConnection>;
   service_name?: Maybe<Scalars['String']>;
   service_status?: Maybe<Scalars['String']>;
@@ -19359,6 +19403,7 @@ export type Region = BasicObject & Location & StixCoreObject & StixDomainObject 
   pendingFiles?: Maybe<FileConnection>;
   precision?: Maybe<Scalars['Float']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -19663,7 +19708,7 @@ export type Report = BasicObject & Container & StixCoreObject & StixDomainObject
   relatedContainers?: Maybe<ContainerConnection>;
   report_types?: Maybe<Array<Maybe<Scalars['String']>>>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -19954,6 +19999,12 @@ export enum ReportsOrdering {
   XOpenctiWorkflowId = 'x_opencti_workflow_id'
 }
 
+export type Representative = {
+  __typename?: 'Representative';
+  main: Scalars['String'];
+  secondary: Scalars['String'];
+};
+
 export type ResolvedInstanceFilter = {
   __typename?: 'ResolvedInstanceFilter';
   id: Scalars['String'];
@@ -20162,6 +20213,7 @@ export type Sector = BasicObject & Identity & StixCoreObject & StixDomainObject 
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
   spec_version: Scalars['String'];
@@ -20563,6 +20615,7 @@ export type Software = BasicObject & StixCoreObject & StixCyberObservable & Stix
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -20848,6 +20901,7 @@ export type StixCoreObject = {
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -21207,6 +21261,7 @@ export type StixCoreRelationship = BasicRelationship & StixRelationship & {
   parent_types: Array<Maybe<Scalars['String']>>;
   relationship_type: Scalars['String'];
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -21493,6 +21548,7 @@ export type StixCyberObservable = {
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -21788,6 +21844,7 @@ export type StixDomainObject = {
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -22175,6 +22232,7 @@ export type StixFile = BasicObject & HashedObservable & StixCoreObject & StixCyb
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   size?: Maybe<Scalars['Int']>;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -22718,6 +22776,7 @@ export type StixSightingRelationship = BasicRelationship & StixRelationship & {
   parent_types: Array<Maybe<Scalars['String']>>;
   relationship_type: Scalars['String'];
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   status?: Maybe<Status>;
@@ -23233,6 +23292,7 @@ export type System = BasicObject & Identity & StixCoreObject & StixDomainObject 
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
   spec_version: Scalars['String'];
@@ -23521,7 +23581,7 @@ export type Task = BasicObject & Container & StixCoreObject & StixDomainObject &
   pendingFiles?: Maybe<FileConnection>;
   relatedContainers?: Maybe<ContainerConnection>;
   reports?: Maybe<ReportConnection>;
-  representative: Scalars['String'];
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -23888,6 +23948,7 @@ export type Text = BasicObject & StixCoreObject & StixCyberObservable & StixObje
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -24083,6 +24144,7 @@ export type ThreatActor = {
   personal_motivations?: Maybe<Array<Maybe<Scalars['String']>>>;
   primary_motivation?: Maybe<Scalars['String']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   resource_level?: Maybe<Scalars['String']>;
   revoked: Scalars['Boolean'];
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -24287,6 +24349,7 @@ export type ThreatActorGroup = BasicObject & StixCoreObject & StixDomainObject &
   personal_motivations?: Maybe<Array<Maybe<Scalars['String']>>>;
   primary_motivation?: Maybe<Scalars['String']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   resource_level?: Maybe<Scalars['String']>;
   revoked: Scalars['Boolean'];
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -24557,6 +24620,7 @@ export type ThreatActorIndividual = BasicObject & StixCoreObject & StixDomainObj
   photo?: Maybe<File>;
   primary_motivation?: Maybe<Scalars['String']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   resource_level?: Maybe<Scalars['String']>;
   revoked: Scalars['Boolean'];
   roles?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -24862,6 +24926,7 @@ export type Tool = BasicObject & StixCoreObject & StixDomainObject & StixObject 
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
@@ -25282,6 +25347,7 @@ export type Url = BasicObject & StixCoreObject & StixCyberObservable & StixObjec
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -25528,6 +25594,7 @@ export type UserAccount = BasicObject & StixCoreObject & StixCyberObservable & S
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -25736,6 +25803,7 @@ export type UserAgent = BasicObject & StixCoreObject & StixCyberObservable & Sti
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -26192,6 +26260,7 @@ export type Vulnerability = BasicObject & StixCoreObject & StixDomainObject & St
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   revoked: Scalars['Boolean'];
   softwares?: Maybe<StixCyberObservableConnection>;
   spec_version: Scalars['String'];
@@ -26448,6 +26517,7 @@ export type WindowsRegistryKey = BasicObject & StixCoreObject & StixCyberObserva
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -26635,6 +26705,7 @@ export type WindowsRegistryValueType = BasicObject & StixCoreObject & StixCyberO
   parent_types: Array<Maybe<Scalars['String']>>;
   pendingFiles?: Maybe<FileConnection>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   spec_version: Scalars['String'];
   standard_id: Scalars['String'];
   stixCoreObjectsDistribution?: Maybe<Array<Maybe<Distribution>>>;
@@ -27013,6 +27084,7 @@ export type X509Certificate = BasicObject & HashedObservable & StixCoreObject & 
   private_key_usage_period_not_after?: Maybe<Scalars['DateTime']>;
   private_key_usage_period_not_before?: Maybe<Scalars['DateTime']>;
   reports?: Maybe<ReportConnection>;
+  representative: Representative;
   serial_number?: Maybe<Scalars['String']>;
   signature_algorithm?: Maybe<Scalars['String']>;
   spec_version: Scalars['String'];
@@ -27794,6 +27866,7 @@ export type ResolversTypes = ResolversObject<{
   ReportsFilter: ReportsFilter;
   ReportsFiltering: ReportsFiltering;
   ReportsOrdering: ReportsOrdering;
+  Representative: ResolverTypeWrapper<Representative>;
   ResolvedInstanceFilter: ResolverTypeWrapper<ResolvedInstanceFilter>;
   RetentionRule: ResolverTypeWrapper<RetentionRule>;
   RetentionRuleAddInput: RetentionRuleAddInput;
@@ -28480,6 +28553,7 @@ export type ResolversParentTypes = ResolversObject<{
   ReportEdge: Omit<ReportEdge, 'node'> & { node: ResolversParentTypes['Report'] };
   ReportEditMutations: Omit<ReportEditMutations, 'contextClean' | 'contextPatch' | 'fieldPatch' | 'relationAdd' | 'relationDelete'> & { contextClean?: Maybe<ResolversParentTypes['Report']>, contextPatch?: Maybe<ResolversParentTypes['Report']>, fieldPatch?: Maybe<ResolversParentTypes['Report']>, relationAdd?: Maybe<ResolversParentTypes['StixRefRelationship']>, relationDelete?: Maybe<ResolversParentTypes['Report']> };
   ReportsFiltering: ReportsFiltering;
+  Representative: Representative;
   ResolvedInstanceFilter: ResolvedInstanceFilter;
   RetentionRule: RetentionRule;
   RetentionRuleAddInput: RetentionRuleAddInput;
@@ -28771,6 +28845,7 @@ export type AdministrativeAreaResolvers<ContextType = any, ParentType extends Re
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<AdministrativeAreaPendingFilesArgs>>;
   precision?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<AdministrativeAreaReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -28870,6 +28945,7 @@ export type ArtifactResolvers<ContextType = any, ParentType extends ResolversPar
   payload_bin?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<ArtifactPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ArtifactReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<ArtifactStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -28943,6 +29019,7 @@ export type AttackPatternResolvers<ContextType = any, ParentType extends Resolve
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<AttackPatternPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<AttackPatternReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29040,6 +29117,7 @@ export type AutonomousSystemResolvers<ContextType = any, ParentType extends Reso
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<AutonomousSystemPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<AutonomousSystemReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   rir?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29131,6 +29209,7 @@ export type BankAccountResolvers<ContextType = any, ParentType extends Resolvers
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<BankAccountPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<BankAccountReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<BankAccountStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -29202,6 +29281,7 @@ export type CampaignResolvers<ContextType = any, ParentType extends ResolversPar
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<CampaignPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CampaignReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29304,7 +29384,7 @@ export type CaseResolvers<ContextType = any, ParentType extends ResolversParentT
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<CasePendingFilesArgs>>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<CaseRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CaseReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29372,7 +29452,7 @@ export type CaseIncidentResolvers<ContextType = any, ParentType extends Resolver
   rating?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<CaseIncidentRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CaseIncidentReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   response_types?: Resolver<Maybe<Array<ResolversTypes['String']>>, ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   severity?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -29443,7 +29523,7 @@ export type CaseRfiResolvers<ContextType = any, ParentType extends ResolversPare
   priority?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<CaseRfiRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CaseRfiReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   severity?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29512,7 +29592,7 @@ export type CaseRftResolvers<ContextType = any, ParentType extends ResolversPare
   priority?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<CaseRftRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CaseRftReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   severity?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29603,6 +29683,7 @@ export type ChannelResolvers<ContextType = any, ParentType extends ResolversPare
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<ChannelPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ChannelReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29668,6 +29749,7 @@ export type CityResolvers<ContextType = any, ParentType extends ResolversParentT
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<CityPendingFilesArgs>>;
   precision?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CityReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29779,7 +29861,7 @@ export type ContainerResolvers<ContextType = any, ParentType extends ResolversPa
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<ContainerRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ContainerReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29862,6 +29944,7 @@ export type CountryResolvers<ContextType = any, ParentType extends ResolversPare
   precision?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
   region?: Resolver<Maybe<ResolversTypes['Region']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CountryReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -29934,6 +30017,7 @@ export type CourseOfActionResolvers<ContextType = any, ParentType extends Resolv
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<CourseOfActionPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CourseOfActionReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -30022,6 +30106,7 @@ export type CryptocurrencyWalletResolvers<ContextType = any, ParentType extends 
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<CryptocurrencyWalletPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CryptocurrencyWalletReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<CryptocurrencyWalletStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -30064,6 +30149,7 @@ export type CryptographicKeyResolvers<ContextType = any, ParentType extends Reso
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<CryptographicKeyPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<CryptographicKeyReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<CryptographicKeyStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -30114,6 +30200,7 @@ export type DataComponentResolvers<ContextType = any, ParentType extends Resolve
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<DataComponentPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<DataComponentReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -30177,6 +30264,7 @@ export type DataSourceResolvers<ContextType = any, ParentType extends ResolversP
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<DataSourcePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<DataSourceReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -30280,6 +30368,7 @@ export type DirectoryResolvers<ContextType = any, ParentType extends ResolversPa
   path_enc?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<DirectoryPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<DirectoryReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<DirectoryStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -30351,6 +30440,7 @@ export type DomainNameResolvers<ContextType = any, ParentType extends ResolversP
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<DomainNamePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<DomainNameReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<DomainNameStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -30408,6 +30498,7 @@ export type EmailAddrResolvers<ContextType = any, ParentType extends ResolversPa
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<EmailAddrPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<EmailAddrReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<EmailAddrStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -30456,6 +30547,7 @@ export type EmailMessageResolvers<ContextType = any, ParentType extends Resolver
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<EmailMessagePendingFilesArgs>>;
   received_lines?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<EmailMessageReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<EmailMessageStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -30501,6 +30593,7 @@ export type EmailMimePartTypeResolvers<ContextType = any, ParentType extends Res
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<EmailMimePartTypePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<EmailMimePartTypeReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<EmailMimePartTypeStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -30581,6 +30674,7 @@ export type EventResolvers<ContextType = any, ParentType extends ResolversParent
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<EventPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<EventReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -30740,7 +30834,7 @@ export type FeedbackResolvers<ContextType = any, ParentType extends ResolversPar
   rating?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<FeedbackRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<FeedbackReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -30896,7 +30990,7 @@ export type GroupingResolvers<ContextType = any, ParentType extends ResolversPar
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<GroupingPendingFilesArgs>>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<GroupingRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<GroupingReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -30961,6 +31055,7 @@ export type HashedObservableResolvers<ContextType = any, ParentType extends Reso
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<HashedObservablePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<HashedObservableReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<HashedObservableStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -31000,6 +31095,7 @@ export type HostnameResolvers<ContextType = any, ParentType extends ResolversPar
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<HostnamePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<HostnameReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<HostnameStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -31043,6 +31139,7 @@ export type IPv4AddrResolvers<ContextType = any, ParentType extends ResolversPar
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<IPv4AddrPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<IPv4AddrReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<IPv4AddrStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -31086,6 +31183,7 @@ export type IPv6AddrResolvers<ContextType = any, ParentType extends ResolversPar
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<IPv6AddrPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<IPv6AddrReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<IPv6AddrStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -31136,6 +31234,7 @@ export type IdentityResolvers<ContextType = any, ParentType extends ResolversPar
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<IdentityPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<IdentityReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   roles?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -31212,6 +31311,7 @@ export type IncidentResolvers<ContextType = any, ParentType extends ResolversPar
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<IncidentPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<IncidentReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   severity?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   source?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -31296,6 +31396,7 @@ export type IndicatorResolvers<ContextType = any, ParentType extends ResolversPa
   pattern_version?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<IndicatorPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<IndicatorReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -31376,6 +31477,7 @@ export type IndividualResolvers<ContextType = any, ParentType extends ResolversP
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<IndividualPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<IndividualReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   roles?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -31468,6 +31570,7 @@ export type InfrastructureResolvers<ContextType = any, ParentType extends Resolv
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<InfrastructurePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<InfrastructureReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -31565,6 +31668,7 @@ export type IntrusionSetResolvers<ContextType = any, ParentType extends Resolver
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<IntrusionSetPendingFilesArgs>>;
   primary_motivation?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<IntrusionSetReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   resource_level?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   secondary_motivations?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
@@ -31721,6 +31825,7 @@ export type LanguageResolvers<ContextType = any, ParentType extends ResolversPar
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<LanguagePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<LanguageReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -31800,6 +31905,7 @@ export type LocationResolvers<ContextType = any, ParentType extends ResolversPar
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<LocationPendingFilesArgs>>;
   precision?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<LocationReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -31902,6 +32008,7 @@ export type MacAddrResolvers<ContextType = any, ParentType extends ResolversPare
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<MacAddrPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<MacAddrReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<MacAddrStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -31958,6 +32065,7 @@ export type MalwareResolvers<ContextType = any, ParentType extends ResolversPare
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<MalwarePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<MalwareReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -32015,6 +32123,7 @@ export type MalwareAnalysisResolvers<ContextType = any, ParentType extends Resol
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<MalwareAnalysisPendingFilesArgs>>;
   product?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<MalwareAnalysisReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   result?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   result_name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
@@ -32192,6 +32301,7 @@ export type MediaContentResolvers<ContextType = any, ParentType extends Resolver
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<MediaContentPendingFilesArgs>>;
   publication_date?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<MediaContentReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<MediaContentStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -32551,6 +32661,7 @@ export type MutexResolvers<ContextType = any, ParentType extends ResolversParent
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<MutexPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<MutexReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<MutexStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -32601,6 +32712,7 @@ export type NarrativeResolvers<ContextType = any, ParentType extends ResolversPa
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<NarrativePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<NarrativeReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -32664,6 +32776,7 @@ export type NetworkTrafficResolvers<ContextType = any, ParentType extends Resolv
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<NetworkTrafficPendingFilesArgs>>;
   protocols?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<NetworkTrafficReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   src_byte_count?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   src_packets?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
@@ -32719,7 +32832,7 @@ export type NoteResolvers<ContextType = any, ParentType extends ResolversParentT
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<NotePendingFilesArgs>>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<NoteRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<NoteReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -32854,7 +32967,7 @@ export type ObservedDataResolvers<ContextType = any, ParentType extends Resolver
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<ObservedDataPendingFilesArgs>>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<ObservedDataRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ObservedDataReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -32928,7 +33041,7 @@ export type OpinionResolvers<ContextType = any, ParentType extends ResolversPare
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<OpinionPendingFilesArgs>>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<OpinionRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<OpinionReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -33004,6 +33117,7 @@ export type OrganizationResolvers<ContextType = any, ParentType extends Resolver
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<OrganizationPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<OrganizationReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   roles?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   sectors?: Resolver<Maybe<ResolversTypes['SectorConnection']>, ParentType, ContextType>;
@@ -33125,6 +33239,7 @@ export type PaymentCardResolvers<ContextType = any, ParentType extends Resolvers
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<PaymentCardPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<PaymentCardReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<PaymentCardStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -33166,6 +33281,7 @@ export type PhoneNumberResolvers<ContextType = any, ParentType extends Resolvers
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<PhoneNumberPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<PhoneNumberReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<PhoneNumberStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -33218,6 +33334,7 @@ export type PositionResolvers<ContextType = any, ParentType extends ResolversPar
   postal_code?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   precision?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<PositionReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -33300,6 +33417,7 @@ export type ProcessResolvers<ContextType = any, ParentType extends ResolversPare
   pid?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   priority?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ProcessReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   serviceDlls?: Resolver<Maybe<ResolversTypes['StixFileConnection']>, ParentType, ContextType>;
   service_name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   service_status?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
@@ -33682,6 +33800,7 @@ export type RegionResolvers<ContextType = any, ParentType extends ResolversParen
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<RegionPendingFilesArgs>>;
   precision?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<RegionReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -33770,7 +33889,7 @@ export type ReportResolvers<ContextType = any, ParentType extends ResolversParen
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<ReportRelatedContainersArgs>>;
   report_types?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ReportReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -33806,6 +33925,12 @@ export type ReportEditMutationsResolvers<ContextType = any, ParentType extends R
   fieldPatch?: Resolver<Maybe<ResolversTypes['Report']>, ParentType, ContextType, RequireFields<ReportEditMutationsFieldPatchArgs, 'input'>>;
   relationAdd?: Resolver<Maybe<ResolversTypes['StixRefRelationship']>, ParentType, ContextType, RequireFields<ReportEditMutationsRelationAddArgs, 'input'>>;
   relationDelete?: Resolver<Maybe<ResolversTypes['Report']>, ParentType, ContextType, RequireFields<ReportEditMutationsRelationDeleteArgs, 'relationship_type' | 'toId'>>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+}>;
+
+export type RepresentativeResolvers<ContextType = any, ParentType extends ResolversParentTypes['Representative'] = ResolversParentTypes['Representative']> = ResolversObject<{
+  main?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  secondary?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -33972,6 +34097,7 @@ export type SectorResolvers<ContextType = any, ParentType extends ResolversParen
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<SectorPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<SectorReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   roles?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -34133,6 +34259,7 @@ export type SoftwareResolvers<ContextType = any, ParentType extends ResolversPar
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<SoftwarePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<SoftwareReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<SoftwareStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -34232,6 +34359,7 @@ export type StixCoreObjectResolvers<ContextType = any, ParentType extends Resolv
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<StixCoreObjectPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<StixCoreObjectReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<StixCoreObjectStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -34302,6 +34430,7 @@ export type StixCoreRelationshipResolvers<ContextType = any, ParentType extends 
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   relationship_type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<StixCoreRelationshipReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -34374,6 +34503,7 @@ export type StixCyberObservableResolvers<ContextType = any, ParentType extends R
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<StixCyberObservablePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<StixCyberObservableReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<StixCyberObservableStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -34444,6 +34574,7 @@ export type StixDomainObjectResolvers<ContextType = any, ParentType extends Reso
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<StixDomainObjectPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<StixDomainObjectReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -34528,6 +34659,7 @@ export type StixFileResolvers<ContextType = any, ParentType extends ResolversPar
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<StixFilePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<StixFileReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   size?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -34754,6 +34886,7 @@ export type StixSightingRelationshipResolvers<ContextType = any, ParentType exte
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   relationship_type?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<StixSightingRelationshipReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   status?: Resolver<Maybe<ResolversTypes['Status']>, ParentType, ContextType>;
@@ -34944,6 +35077,7 @@ export type SystemResolvers<ContextType = any, ParentType extends ResolversParen
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<SystemPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<SystemReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   roles?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -35022,7 +35156,7 @@ export type TaskResolvers<ContextType = any, ParentType extends ResolversParentT
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<TaskPendingFilesArgs>>;
   relatedContainers?: Resolver<Maybe<ResolversTypes['ContainerConnection']>, ParentType, ContextType, Partial<TaskRelatedContainersArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<TaskReportsArgs>>;
-  representative?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -35128,6 +35262,7 @@ export type TextResolvers<ContextType = any, ParentType extends ResolversParentT
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<TextPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<TextReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<TextStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -35184,6 +35319,7 @@ export type ThreatActorResolvers<ContextType = any, ParentType extends Resolvers
   personal_motivations?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   primary_motivation?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ThreatActorReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   resource_level?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   roles?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
@@ -35256,6 +35392,7 @@ export type ThreatActorGroupResolvers<ContextType = any, ParentType extends Reso
   personal_motivations?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   primary_motivation?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ThreatActorGroupReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   resource_level?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   roles?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
@@ -35340,6 +35477,7 @@ export type ThreatActorIndividualResolvers<ContextType = any, ParentType extends
   photo?: Resolver<Maybe<ResolversTypes['File']>, ParentType, ContextType>;
   primary_motivation?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ThreatActorIndividualReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   resource_level?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   roles?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
@@ -35413,6 +35551,7 @@ export type ToolResolvers<ContextType = any, ParentType extends ResolversParentT
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<ToolPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<ToolReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -35533,6 +35672,7 @@ export type UrlResolvers<ContextType = any, ParentType extends ResolversParentTy
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<UrlPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<UrlReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<UrlStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -35620,6 +35760,7 @@ export type UserAccountResolvers<ContextType = any, ParentType extends Resolvers
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<UserAccountPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<UserAccountReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<UserAccountStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -35662,6 +35803,7 @@ export type UserAgentResolvers<ContextType = any, ParentType extends ResolversPa
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<UserAgentPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<UserAgentReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<UserAgentStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -35791,6 +35933,7 @@ export type VulnerabilityResolvers<ContextType = any, ParentType extends Resolve
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<VulnerabilityPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<VulnerabilityReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   revoked?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   softwares?: Resolver<Maybe<ResolversTypes['StixCyberObservableConnection']>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -35867,6 +36010,7 @@ export type WindowsRegistryKeyResolvers<ContextType = any, ParentType extends Re
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<WindowsRegistryKeyPendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<WindowsRegistryKeyReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<WindowsRegistryKeyStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -35911,6 +36055,7 @@ export type WindowsRegistryValueTypeResolvers<ContextType = any, ParentType exte
   parent_types?: Resolver<Array<Maybe<ResolversTypes['String']>>, ParentType, ContextType>;
   pendingFiles?: Resolver<Maybe<ResolversTypes['FileConnection']>, ParentType, ContextType, Partial<WindowsRegistryValueTypePendingFilesArgs>>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<WindowsRegistryValueTypeReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   standard_id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   stixCoreObjectsDistribution?: Resolver<Maybe<Array<Maybe<ResolversTypes['Distribution']>>>, ParentType, ContextType, RequireFields<WindowsRegistryValueTypeStixCoreObjectsDistributionArgs, 'field' | 'operation'>>;
@@ -36057,6 +36202,7 @@ export type X509CertificateResolvers<ContextType = any, ParentType extends Resol
   private_key_usage_period_not_after?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   private_key_usage_period_not_before?: Resolver<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
   reports?: Resolver<Maybe<ResolversTypes['ReportConnection']>, ParentType, ContextType, Partial<X509CertificateReportsArgs>>;
+  representative?: Resolver<ResolversTypes['Representative'], ParentType, ContextType>;
   serial_number?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   signature_algorithm?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   spec_version?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
@@ -36360,6 +36506,7 @@ export type Resolvers<ContextType = any> = ResolversObject<{
   ReportConnection?: ReportConnectionResolvers<ContextType>;
   ReportEdge?: ReportEdgeResolvers<ContextType>;
   ReportEditMutations?: ReportEditMutationsResolvers<ContextType>;
+  Representative?: RepresentativeResolvers<ContextType>;
   ResolvedInstanceFilter?: ResolvedInstanceFilterResolvers<ContextType>;
   RetentionRule?: RetentionRuleResolvers<ContextType>;
   RetentionRuleConnection?: RetentionRuleConnectionResolvers<ContextType>;
