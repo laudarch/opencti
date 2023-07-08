@@ -42,5 +42,6 @@ import './case/feedback/feedback';
 import './entitySetting/entitySetting';
 import './workspace/workspace';
 import './malwareAnalysis/malwareAnalysis';
+import './outcome/outcome';
 import './threatActorIndividual/threatActorIndividual';
 // endregion

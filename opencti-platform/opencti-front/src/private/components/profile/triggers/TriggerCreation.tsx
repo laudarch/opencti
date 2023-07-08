@@ -5,11 +5,15 @@ import SpeedDialIcon from '@mui/material/SpeedDialIcon';
 import SpeedDialAction from '@mui/material/SpeedDialAction';
 import SpeedDial from '@mui/material/SpeedDial';
 import makeStyles from '@mui/styles/makeStyles';
+import { graphql } from 'react-relay';
 import { Theme } from '../../../../components/Theme';
 import { useFormatter } from '../../../../components/i18n';
+import useQueryLoading from '../../../../utils/hooks/useQueryLoading';
 import { TriggersLinesPaginationQuery$variables } from './__generated__/TriggersLinesPaginationQuery.graphql';
 import TriggerDigestCreation from './TriggerDigestCreation';
 import TriggerLiveCreation from './TriggerLiveCreation';
+import OutcomeField from '../../common/form/OutcomeField';
+import { Option } from '../../common/form/ReferenceField';
 import { TriggerLiveCreationKnowledgeMutation$data } from './__generated__/TriggerLiveCreationKnowledgeMutation.graphql';
 
 const useStyles = makeStyles<Theme>((theme) => ({

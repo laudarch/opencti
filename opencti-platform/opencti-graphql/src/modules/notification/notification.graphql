@@ -77,7 +77,7 @@ type Trigger implements InternalObject & BasicObject {
     trigger_type: TriggerType! # live or digest
     event_types: [String!]
     filters: String
-    outcomes: [StixRef!]
+    outcomes: [Outcome!]
     trigger_ids: [String]
     triggers: [Trigger]
     recipients: [Member]

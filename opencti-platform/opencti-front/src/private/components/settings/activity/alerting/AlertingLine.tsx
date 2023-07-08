@@ -90,7 +90,10 @@ const alertingLineFragment = graphql`
     filters
     created
     modified
-    outcomes
+    outcomes {
+      id
+      name
+    }
     period
     trigger_time
     triggers {
@@ -105,10 +108,6 @@ export const AlertingLineComponent: FunctionComponent<AlertingLineProps> = ({ da
   const { t, nt } = useFormatter();
   const data = useFragment(alertingLineFragment, node);
   const filters = JSON.parse(data.filters ?? '{}');
-  const outcomesOptions: Record<string, string> = {
-    'f4ee7b33-006a-4b0d-b57d-411ad288653d': t('User interface'),
-    '44fcf1f4-8e31-4b31-8dbc-cd6993e1b822': t('Email'),
-  };
   const currentTime = data.trigger_time?.split('-') ?? [
     dayStartDate().toISOString(),
   ];
@@ -153,7 +152,7 @@ export const AlertingLineComponent: FunctionComponent<AlertingLineProps> = ({ da
             >
               {data.outcomes && data.outcomes.length > 0
                   && data.outcomes.map<React.ReactNode>((n) => (
-                    <code>{outcomesOptions[n]}</code>
+                    <code>{n.name}</code>
                   ))
                     .reduce((prev, curr) => [prev, ', ', curr])}
             </div>

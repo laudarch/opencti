@@ -19,7 +19,10 @@ const LIST_QUERY = gql`
                     description
                     created
                     modified
-                    outcomes
+                    outcomes {
+                      id
+                      name
+                    }
                 }
             }
         }

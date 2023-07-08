@@ -15,7 +15,9 @@ export const triggersQueriesKnowledgeSearchQuery = graphql`
           description
           created
           modified
-          outcomes
+          outcomes {
+            id
+          }
         }
       }
     }
@@ -37,7 +39,9 @@ export const triggersQueriesActivitySearchQuery = graphql`
           description
           created
           modified
-          outcomes
+          outcomes {
+            id
+          }
         }
       }
     }

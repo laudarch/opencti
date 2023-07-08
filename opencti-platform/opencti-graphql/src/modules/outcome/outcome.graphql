@@ -1,0 +1,81 @@
+enum OutcomeFilter {
+    created
+}
+input OutcomeFiltering {
+    key: [OutcomeFilter!]!
+    values: [String]
+    operator: String
+    filterMode: FilterMode
+}
+enum OutcomeOrdering {
+    name
+    created
+}
+
+type OutcomeParameter {
+    key: String
+    value: String
+}
+
+type OutcomeConnector {
+    id: ID! # internal_id
+    name: String!
+    built_in: Boolean
+    connector_type: String
+    connector_schema: String!
+    connector_schema_ui: String
+}
+
+type Outcome implements InternalObject & BasicObject {
+    id: ID! # internal_id
+    standard_id: String!
+    entity_type: String!
+    parent_types: [String]!
+    created: DateTime
+    modified: DateTime
+    name: String!
+    description: String
+    outcome_connector: OutcomeConnector!
+    outcome_connector_id: String!
+    outcome_configuration: String!
+    authorized_members: [MemberAccess!] @auth(for: [SETTINGS])
+}
+
+type OutcomeConnection {
+    pageInfo: PageInfo!
+    edges: [OutcomeEdge]
+}
+type OutcomeEdge {
+    cursor: String!
+    node: Outcome!
+}
+
+# Queries
+type Query {
+    notificationOutcomes: [Outcome!]! @auth
+    outcome(id: String!): Outcome @auth(for: [SETTINGS])
+    outcomes(
+        first: Int
+        after: ID
+        orderBy: OutcomeOrdering
+        orderMode: OrderingMode
+        filters: [OutcomeFiltering!]
+        filterMode: FilterMode
+        search: String
+    ): OutcomeConnection @auth(for: [SETTINGS])
+}
+
+# Mutations
+input OutcomeAddInput {
+    name: String! @constraint(minLength: 1)
+    description: String
+    outcome_connector_id: String!
+    outcome_configuration: String!
+    authorized_members: [MemberAccessInput!]
+}
+
+type Mutation {
+    outcomeDelete(id: ID!): ID @auth(for: [SETTINGS])
+    outcomeFieldPatch(id: ID!, input: [EditInput!]!): Outcome @auth(for: [SETTINGS])
+    outcomeAdd(input: OutcomeAddInput!): Outcome @auth(for: [SETTINGS])
+}

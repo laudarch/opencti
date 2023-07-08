@@ -1,35 +1,28 @@
-import ejs from 'ejs';
 import axios from 'axios';
+import ejs from 'ejs';
+import * as R from 'ramda';
 import { clearIntervalAsync, setIntervalAsync, SetIntervalAsyncTimer } from 'set-interval-async/fixed';
-import { createStreamProcessor, lockResource, NOTIFICATION_STREAM_NAME, StreamProcessor } from '../database/redis';
 import conf, { booleanConf, getBaseUrl, logApp } from '../config/conf';
 import { TYPE_LOCK_ERROR } from '../config/errors';
-import { executionContext, SYSTEM_USER } from '../utils/access';
-import {
-  ActivityNotificationEvent,
-  DigestEvent,
-  getNotifications,
-  KnowledgeNotificationEvent,
-  NotificationUser,
-  STATIC_OUTCOMES
-} from './notificationManager';
-import type { SseEvent, StreamNotifEvent } from '../types/event';
+import { getEntitiesListFromCache, getEntityFromCache } from '../database/cache';
+import { createStreamProcessor, lockResource, NOTIFICATION_STREAM_NAME, StreamProcessor } from '../database/redis';
 import { sendMail, smtpIsAlive } from '../database/smtp';
-import { getEntityFromCache } from '../database/cache';
-import { ENTITY_TYPE_SETTINGS } from '../schema/internalObject';
-import type { BasicStoreSettings } from '../types/settings';
 import { addNotification } from '../modules/notification/notification-domain';
-import type { AuthContext } from '../types/user';
-import type { StixCoreObject, StixRelationshipObject } from '../types/stix-common';
-import { now } from '../utils/format';
 import type { NotificationContentEvent } from '../modules/notification/notification-types';
+import { OUTCOME_CONNECTOR_EMAIL, OUTCOME_CONNECTOR_EMAIL_INTERFACE, OUTCOME_CONNECTOR_UI, OUTCOME_CONNECTOR_WEBHOOK, OUTCOME_CONNECTOR_WEBHOOK_INTERFACE, } from '../modules/outcome/outcome-statics';
+import { BasicStoreEntityOutcome, ENTITY_TYPE_OUTCOME } from '../modules/outcome/outcome-types';
+import { ENTITY_TYPE_SETTINGS } from '../schema/internalObject';
+import type { SseEvent, StreamNotifEvent } from '../types/event';
+import type { BasicStoreSettings } from '../types/settings';
+import type { StixCoreObject, StixRelationshipObject } from '../types/stix-common';
+import type { AuthContext } from '../types/user';
+import { executionContext, SYSTEM_USER } from '../utils/access';
+import { now } from '../utils/format';
+import { ActivityNotificationEvent, DigestEvent, getNotifications, KnowledgeNotificationEvent, NotificationUser, } from './notificationManager';
 
 const DOC_URI = 'https://filigran.notion.site/OpenCTI-Public-Knowledge-Base-d411e5e477734c59887dad3649f20518';
 const PUBLISHER_ENGINE_KEY = conf.get('publisher_manager:lock_key');
 const STREAM_SCHEDULE_TIME = 10000;
-const OUTCOME_TYPE_UI = 'UI';
-const OUTCOME_TYPE_EMAIL = 'EMAIL';
-const OUTCOME_TYPE_WEBHOOK = 'WEBHOOK';
 
 const processNotificationEvent = async (
   context: AuthContext,
@@ -43,7 +36,8 @@ const processNotificationEvent = async (
   }>
 ) => {
   const settings = await getEntityFromCache<BasicStoreSettings>(context, SYSTEM_USER, ENTITY_TYPE_SETTINGS);
-  const outcomeMap = new Map(STATIC_OUTCOMES.map((n) => [n.internal_id, n]));
+  const outcomes = await getEntitiesListFromCache<BasicStoreEntityOutcome>(context, SYSTEM_USER, ENTITY_TYPE_OUTCOME);
+  const outcomeMap = new Map(outcomes.map((n) => [n.internal_id, n]));
   const notifications = await getNotifications(context);
   const notificationMap = new Map(notifications.map((n) => [n.trigger.internal_id, n.trigger]));
   const notification = notificationMap.get(notificationId);
@@ -54,7 +48,7 @@ const processNotificationEvent = async (
   const userOutcomes = user.outcomes ?? []; // No outcome is possible for live trigger only targeting digest
   for (let outcomeIndex = 0; outcomeIndex < userOutcomes.length; outcomeIndex += 1) {
     const outcome = userOutcomes[outcomeIndex];
-    const { outcome_type, configuration } = outcomeMap.get(outcome) ?? {};
+    const { outcome_connector_id, outcome_configuration: configuration } = outcomeMap.get(outcome) ?? {};
     const generatedContent: Record<string, Array<NotificationContentEvent>> = {};
     for (let index = 0; index < data.length; index += 1) {
       const { notification_id, instance, type, message } = data[index];
@@ -73,10 +67,9 @@ const processNotificationEvent = async (
     // region data generation
     const background_color = (settings.platform_theme_dark_background ?? '#0a1929').substring(1);
     const platformOpts = { doc_uri: DOC_URI, platform_uri: getBaseUrl(), background_color };
-    const title = `New ${trigger_type} notification for ${notification.name}`;
-    const templateData = { title, content, notification, settings, user, data, ...platformOpts };
+    const templateData = { content, notification, settings, user, data, ...platformOpts };
     // endregion
-    if (outcome_type === OUTCOME_TYPE_UI) {
+    if (outcome_connector_id === OUTCOME_CONNECTOR_UI) {
       const createNotification = {
         name: notification_name,
         notification_type: trigger_type,
@@ -88,24 +81,29 @@ const processNotificationEvent = async (
         is_read: false
       };
       addNotification(context, SYSTEM_USER, createNotification).catch((err) => {
-        logApp.error('[OPENCTI-MODULE] Error executing publication', { error: err });
+        logApp.error('[OPENCTI-PUBLISHER] Error user interface publication', { error: err });
       });
-    }
-    if (outcome_type === OUTCOME_TYPE_EMAIL) {
-      const { template } = configuration ?? {};
+    } else if (outcome_connector_id === OUTCOME_CONNECTOR_EMAIL) {
+      const { title, template } = JSON.parse(configuration ?? '{}') as OUTCOME_CONNECTOR_EMAIL_INTERFACE;
+      const generatedTitle = ejs.render(title, templateData);
       const generatedEmail = ejs.render(template, templateData);
-      const mail = { from: settings.platform_email, to: user.user_email, subject: title, html: generatedEmail };
+      const mail = { from: settings.platform_email, to: user.user_email, subject: generatedTitle, html: generatedEmail };
       sendMail(mail).catch((err) => {
-        logApp.error('[OPENCTI-MODULE] Error executing publication', { error: err });
+        logApp.error('[OPENCTI-PUBLISHER] Error email publication', { error: err });
       });
-    }
-    if (outcome_type === OUTCOME_TYPE_WEBHOOK) {
-      const { uri, template } = configuration ?? {};
+      // TODO get the outcome connector id from the outcome definition
+    } else if (outcome_connector_id === OUTCOME_CONNECTOR_WEBHOOK) {
+      const { url, template, verb, params, headers } = JSON.parse(configuration ?? '{}') as OUTCOME_CONNECTOR_WEBHOOK_INTERFACE;
       const generatedWebhook = ejs.render(template, templateData);
       const dataJson = JSON.parse(generatedWebhook);
-      axios.post(uri, dataJson).catch((err) => {
-        logApp.error('[OPENCTI-MODULE] Error executing publication', { error: err });
+      const dataHeaders = R.fromPairs((headers ?? []).map((h) => [h.attribute, h.value]));
+      const dataParameters = R.fromPairs((params ?? []).map((h) => [h.attribute, h.value]));
+      axios({ url, method: verb, params: dataParameters, headers: dataHeaders, data: dataJson }).catch((err) => {
+        logApp.error('[OPENCTI-PUBLISHER] Error webhook publication', { error: err });
       });
+    } else {
+      // Push the event to the external connector
+      // TODO
     }
   }
 };
@@ -145,7 +143,7 @@ const publisherStreamHandler = async (streamEvents: Array<SseEvent<StreamNotifEv
       }
     }
   } catch (e) {
-    logApp.error('[OPENCTI-MODULE] Error executing publisher manager', { error: e });
+    logApp.error('[OPENCTI-PUBLISHER] Error executing publisher manager', { error: e });
   }
 };
 
@@ -167,7 +165,7 @@ const initPublisherManager = () => {
       // Lock the manager
       lock = await lockResource([PUBLISHER_ENGINE_KEY], { retryCount: 0 });
       running = true;
-      logApp.info('[OPENCTI-MODULE] Running publisher manager');
+      logApp.info('[OPENCTI-PUBLISHER] Running publisher manager');
       const opts = { withInternal: false, streamName: NOTIFICATION_STREAM_NAME };
       streamProcessor = createStreamProcessor(SYSTEM_USER, 'Publisher manager', publisherStreamHandler, opts);
       await streamProcessor.start('live');
@@ -177,9 +175,9 @@ const initPublisherManager = () => {
       logApp.info('[OPENCTI-MODULE] End of publisher manager processing');
     } catch (e: any) {
       if (e.name === TYPE_LOCK_ERROR) {
-        logApp.debug('[OPENCTI-MODULE] Publisher manager already started by another API');
+        logApp.debug('[OPENCTI-PUBLISHER] Publisher manager already started by another API');
       } else {
-        logApp.error('[OPENCTI-MODULE] Publisher manager failed to start', { error: e });
+        logApp.error('[OPENCTI-PUBLISHER] Publisher manager failed to start', { error: e });
       }
     } finally {
       if (streamProcessor) await streamProcessor.shutdown();

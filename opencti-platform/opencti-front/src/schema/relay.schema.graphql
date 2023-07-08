@@ -1483,8 +1483,10 @@ type Connector implements BasicObject & InternalObject {
   connector_type: String
   connector_scope: [String!]
   connector_state: String
+  connector_schema: String
+  connector_schema_ui: String
   connector_state_reset: Boolean
-  connector_user_id: ID!
+  connector_user_id: ID
   updated_at: DateTime
   created_at: DateTime
   config: ConnectorConfig
@@ -7876,6 +7878,7 @@ type Query {
   connectorsForWorker: [Connector]
   connectorsForExport: [Connector]
   connectorsForImport: [Connector]
+  connectorsForNotification: [Connector]
   work(id: ID!): Work
   works(first: Int, after: ID, orderBy: WorksOrdering, orderMode: OrderingMode, search: String, filters: [WorksFiltering], filterMode: FilterMode): WorkConnection
   runtimeAttributes(first: Int, search: String, orderMode: OrderingMode, attributeName: String!): AttributeConnection
@@ -8090,6 +8093,9 @@ type Query {
   workspaces(first: Int, after: ID, orderBy: WorkspacesOrdering, orderMode: OrderingMode, filters: [WorkspacesFiltering!], filterMode: FilterMode, includeAuthorities: Boolean, search: String): WorkspaceConnection
   malwareAnalysis(id: String!): MalwareAnalysis
   malwareAnalyses(first: Int, after: ID, orderBy: MalwareAnalysesOrdering, orderMode: OrderingMode, filters: [MalwareAnalysesFiltering!], filterMode: FilterMode, search: String): MalwareAnalysisConnection
+  notificationOutcomes: [Outcome!]!
+  outcome(id: String!): Outcome
+  outcomes(first: Int, after: ID, orderBy: OutcomeOrdering, orderMode: OrderingMode, filters: [OutcomeFiltering!], filterMode: FilterMode, search: String): OutcomeConnection
   threatActorIndividual(id: String!): ThreatActorIndividual
   threatActorsIndividuals(first: Int, after: ID, orderBy: ThreatActorsIndividualOrdering, orderMode: OrderingMode, filters: [ThreatActorsIndividualFiltering!], filterMode: FilterMode, search: String, toStix: Boolean): ThreatActorIndividualConnection
   threatActorIndividualContainsStixObjectOrStixRelationship(id: String!, stixObjectOrStixRelationshipId: String!): Boolean
@@ -8797,6 +8803,9 @@ type Mutation {
   malwareAnalysisContextClean(id: ID!): MalwareAnalysis
   malwareAnalysisRelationAdd(id: ID!, input: StixRefRelationshipAddInput!): StixRefRelationship
   malwareAnalysisRelationDelete(id: ID!, toId: StixRef!, relationship_type: String!): MalwareAnalysis
+  outcomeDelete(id: ID!): ID
+  outcomeFieldPatch(id: ID!, input: [EditInput!]!): Outcome
+  outcomeAdd(input: OutcomeAddInput!): Outcome
   threatActorIndividualAdd(input: ThreatActorIndividualAddInput!): ThreatActorIndividual
   threatActorIndividualDelete(id: ID!): ID
   threatActorIndividualFieldPatch(id: ID!, input: [EditInput]!, commitMessage: String, references: [String]): ThreatActorIndividual
@@ -9479,7 +9488,7 @@ type Trigger implements InternalObject & BasicObject {
   trigger_type: TriggerType!
   event_types: [String!]
   filters: String
-  outcomes: [StixRef!]
+  outcomes: [Outcome!]
   trigger_ids: [String]
   triggers: [Trigger]
   recipients: [Member]
@@ -11198,6 +11207,69 @@ input MalwareAnalysisAddInput {
   clientMutationId: String
   update: Boolean
   file: Upload
+}
+
+enum OutcomeFilter {
+  created
+}
+
+input OutcomeFiltering {
+  key: [OutcomeFilter!]!
+  values: [String]
+  operator: String
+  filterMode: FilterMode
+}
+
+enum OutcomeOrdering {
+  name
+  created
+}
+
+type OutcomeParameter {
+  key: String
+  value: String
+}
+
+type OutcomeConnector {
+  id: ID!
+  name: String!
+  built_in: Boolean
+  connector_type: String
+  connector_schema: String!
+  connector_schema_ui: String
+}
+
+type Outcome implements InternalObject & BasicObject {
+  id: ID!
+  standard_id: String!
+  entity_type: String!
+  parent_types: [String]!
+  created: DateTime
+  modified: DateTime
+  name: String!
+  description: String
+  outcome_connector: OutcomeConnector!
+  outcome_connector_id: String!
+  outcome_configuration: String!
+  authorized_members: [MemberAccess!]
+}
+
+type OutcomeConnection {
+  pageInfo: PageInfo!
+  edges: [OutcomeEdge]
+}
+
+type OutcomeEdge {
+  cursor: String!
+  node: Outcome!
+}
+
+input OutcomeAddInput {
+  name: name_String_NotNull_minLength_1!
+  description: String
+  outcome_connector_id: String!
+  outcome_configuration: String!
+  authorized_members: [MemberAccessInput!]
 }
 
 type ThreatActorIndividual implements BasicObject & StixObject & StixCoreObject & StixDomainObject & ThreatActor {

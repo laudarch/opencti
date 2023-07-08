@@ -1,3 +1,4 @@
+import { isEmptyField } from '../database/utils';
 import type { AuthContext, AuthUser } from '../types/user';
 import type { BasicStoreEntity } from '../types/store';
 import type { MemberAccess } from '../generated/graphql';
@@ -10,7 +11,7 @@ export const getAuthorizedMembers = async (
   entity: BasicStoreEntity & { authorized_members: Array<AuthorizedMember> }
 ): Promise<MemberAccess[]> => {
   let authorizedMembers: MemberAccess[] = [];
-  if (!entity.authorized_members?.length) {
+  if (isEmptyField(entity.authorized_members)) {
     return authorizedMembers;
   }
   if (!validateUserAccessOperation(user, entity, 'manage-access')) {

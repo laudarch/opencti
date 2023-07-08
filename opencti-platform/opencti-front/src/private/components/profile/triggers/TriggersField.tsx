@@ -123,7 +123,7 @@ const TriggersField: FunctionComponent<TriggersFieldProps> = ({
             id: string;
             modified: string | null;
             name: string;
-            outcomes: Array<string>;
+            outcomes: Array<{ id: string }>;
             trigger_type: TriggerType;
           };
         }[];
@@ -133,6 +133,7 @@ const TriggersField: FunctionComponent<TriggersFieldProps> = ({
           .map((n) => ({
             label: n.node.name,
             value: n.node.id,
+            outcomes: n.node.outcomes.map(({ id }) => id),
             entity: n.node,
           }));
         setTriggers((o) => union(o, newTriggers));
