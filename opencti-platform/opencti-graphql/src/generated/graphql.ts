@@ -8403,6 +8403,7 @@ export type Identity = {
   workflowEnabled?: Maybe<Scalars['Boolean']>;
   x_opencti_aliases?: Maybe<Array<Maybe<Scalars['String']>>>;
   x_opencti_graph_data?: Maybe<Scalars['String']>;
+  x_opencti_reliability?: Maybe<Scalars['String']>;
   x_opencti_stix_ids?: Maybe<Array<Maybe<Scalars['StixId']>>>;
 };
 
@@ -9308,6 +9309,7 @@ export type Individual = BasicObject & Identity & StixCoreObject & StixDomainObj
   x_opencti_graph_data?: Maybe<Scalars['String']>;
   x_opencti_inferences?: Maybe<Array<Maybe<Inference>>>;
   x_opencti_lastname?: Maybe<Scalars['String']>;
+  x_opencti_reliability?: Maybe<Scalars['String']>;
   x_opencti_stix_ids?: Maybe<Array<Maybe<Scalars['StixId']>>>;
 };
 
@@ -9463,6 +9465,7 @@ export type IndividualAddInput = {
   x_opencti_aliases?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   x_opencti_firstname?: InputMaybe<Scalars['String']>;
   x_opencti_lastname?: InputMaybe<Scalars['String']>;
+  x_opencti_reliability?: InputMaybe<Scalars['String']>;
   x_opencti_stix_ids?: InputMaybe<Array<InputMaybe<Scalars['StixId']>>>;
 };
 
@@ -15701,7 +15704,7 @@ export type Organization = BasicObject & Identity & StixCoreObject & StixDomainO
   x_opencti_graph_data?: Maybe<Scalars['String']>;
   x_opencti_inferences?: Maybe<Array<Maybe<Inference>>>;
   x_opencti_organization_type?: Maybe<Scalars['String']>;
-  x_opencti_reliability?: Maybe<OrganizationReliability>;
+  x_opencti_reliability?: Maybe<Scalars['String']>;
   x_opencti_stix_ids?: Maybe<Array<Maybe<Scalars['StixId']>>>;
 };
 
@@ -15865,7 +15868,7 @@ export type OrganizationAddInput = {
   update?: InputMaybe<Scalars['Boolean']>;
   x_opencti_aliases?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   x_opencti_organization_type?: InputMaybe<Scalars['String']>;
-  x_opencti_reliability?: InputMaybe<OrganizationReliability>;
+  x_opencti_reliability?: InputMaybe<Scalars['String']>;
   x_opencti_stix_ids?: InputMaybe<Array<InputMaybe<Scalars['StixId']>>>;
 };
 
@@ -15915,15 +15918,6 @@ export type OrganizationEditMutationsRelationDeleteArgs = {
 };
 
 export type OrganizationOrIndividual = Individual | Organization;
-
-export enum OrganizationReliability {
-  A = 'A',
-  B = 'B',
-  C = 'C',
-  D = 'D',
-  E = 'E',
-  F = 'F'
-}
 
 export enum OrganizationsFilter {
   Aliases = 'aliases',
@@ -19733,6 +19727,7 @@ export type Report = BasicObject & Container & StixCoreObject & StixDomainObject
   workflowEnabled?: Maybe<Scalars['Boolean']>;
   x_opencti_graph_data?: Maybe<Scalars['String']>;
   x_opencti_inferences?: Maybe<Array<Maybe<Inference>>>;
+  x_opencti_reliability?: Maybe<Scalars['String']>;
   x_opencti_stix_ids?: Maybe<Array<Maybe<Scalars['StixId']>>>;
 };
 
@@ -19917,6 +19912,7 @@ export type ReportAddInput = {
   revoked?: InputMaybe<Scalars['Boolean']>;
   stix_id?: InputMaybe<Scalars['StixId']>;
   update?: InputMaybe<Scalars['Boolean']>;
+  x_opencti_reliability?: InputMaybe<Scalars['String']>;
   x_opencti_stix_ids?: InputMaybe<Array<InputMaybe<Scalars['StixId']>>>;
 };
 
@@ -20236,6 +20232,7 @@ export type Sector = BasicObject & Identity & StixCoreObject & StixDomainObject 
   x_opencti_aliases?: Maybe<Array<Maybe<Scalars['String']>>>;
   x_opencti_graph_data?: Maybe<Scalars['String']>;
   x_opencti_inferences?: Maybe<Array<Maybe<Inference>>>;
+  x_opencti_reliability?: Maybe<Scalars['String']>;
   x_opencti_stix_ids?: Maybe<Array<Maybe<Scalars['StixId']>>>;
 };
 
@@ -23316,6 +23313,7 @@ export type System = BasicObject & Identity & StixCoreObject & StixDomainObject 
   x_opencti_graph_data?: Maybe<Scalars['String']>;
   x_opencti_inferences?: Maybe<Array<Maybe<Inference>>>;
   x_opencti_lastname?: Maybe<Scalars['String']>;
+  x_opencti_reliability?: Maybe<Scalars['String']>;
   x_opencti_stix_ids?: Maybe<Array<Maybe<Scalars['StixId']>>>;
 };
 
@@ -23471,6 +23469,7 @@ export type SystemAddInput = {
   x_opencti_aliases?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   x_opencti_firstname?: InputMaybe<Scalars['String']>;
   x_opencti_lastname?: InputMaybe<Scalars['String']>;
+  x_opencti_reliability?: InputMaybe<Scalars['String']>;
   x_opencti_stix_ids?: InputMaybe<Array<InputMaybe<Scalars['StixId']>>>;
 };
 
@@ -26132,6 +26131,7 @@ export enum VocabularyCategory {
   PermissionsOv = 'permissions_ov',
   PlatformsOv = 'platforms_ov',
   ProcessorArchitectureOv = 'processor_architecture_ov',
+  ReliabilityOv = 'reliability_ov',
   ReportTypesOv = 'report_types_ov',
   RequestForInformationTypesOv = 'request_for_information_types_ov',
   RequestForTakedownTypesOv = 'request_for_takedown_types_ov',
@@ -27823,7 +27823,6 @@ export type ResolversTypes = ResolversObject<{
   OrganizationEdge: ResolverTypeWrapper<Omit<OrganizationEdge, 'node'> & { node: ResolversTypes['Organization'] }>;
   OrganizationEditMutations: ResolverTypeWrapper<Omit<OrganizationEditMutations, 'contextClean' | 'contextPatch' | 'fieldPatch' | 'relationAdd' | 'relationDelete'> & { contextClean?: Maybe<ResolversTypes['Organization']>, contextPatch?: Maybe<ResolversTypes['Organization']>, fieldPatch?: Maybe<ResolversTypes['Organization']>, relationAdd?: Maybe<ResolversTypes['StixRefRelationship']>, relationDelete?: Maybe<ResolversTypes['Organization']> }>;
   OrganizationOrIndividual: ResolverTypeWrapper<ResolversUnionTypes['OrganizationOrIndividual']>;
-  OrganizationReliability: OrganizationReliability;
   OrganizationsFilter: OrganizationsFilter;
   OrganizationsFiltering: OrganizationsFiltering;
   OrganizationsOrdering: OrganizationsOrdering;
@@ -31261,6 +31260,7 @@ export type IdentityResolvers<ContextType = any, ParentType extends ResolversPar
   workflowEnabled?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   x_opencti_aliases?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   x_opencti_graph_data?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  x_opencti_reliability?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_stix_ids?: Resolver<Maybe<Array<Maybe<ResolversTypes['StixId']>>>, ParentType, ContextType>;
 }>;
 
@@ -31507,6 +31507,7 @@ export type IndividualResolvers<ContextType = any, ParentType extends ResolversP
   x_opencti_graph_data?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_inferences?: Resolver<Maybe<Array<Maybe<ResolversTypes['Inference']>>>, ParentType, ContextType>;
   x_opencti_lastname?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  x_opencti_reliability?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_stix_ids?: Resolver<Maybe<Array<Maybe<ResolversTypes['StixId']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
@@ -33151,7 +33152,7 @@ export type OrganizationResolvers<ContextType = any, ParentType extends Resolver
   x_opencti_graph_data?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_inferences?: Resolver<Maybe<Array<Maybe<ResolversTypes['Inference']>>>, ParentType, ContextType>;
   x_opencti_organization_type?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  x_opencti_reliability?: Resolver<Maybe<ResolversTypes['OrganizationReliability']>, ParentType, ContextType>;
+  x_opencti_reliability?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_stix_ids?: Resolver<Maybe<Array<Maybe<ResolversTypes['StixId']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
@@ -33919,6 +33920,7 @@ export type ReportResolvers<ContextType = any, ParentType extends ResolversParen
   workflowEnabled?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   x_opencti_graph_data?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_inferences?: Resolver<Maybe<Array<Maybe<ResolversTypes['Inference']>>>, ParentType, ContextType>;
+  x_opencti_reliability?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_stix_ids?: Resolver<Maybe<Array<Maybe<ResolversTypes['StixId']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
@@ -34125,6 +34127,7 @@ export type SectorResolvers<ContextType = any, ParentType extends ResolversParen
   x_opencti_aliases?: Resolver<Maybe<Array<Maybe<ResolversTypes['String']>>>, ParentType, ContextType>;
   x_opencti_graph_data?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_inferences?: Resolver<Maybe<Array<Maybe<ResolversTypes['Inference']>>>, ParentType, ContextType>;
+  x_opencti_reliability?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_stix_ids?: Resolver<Maybe<Array<Maybe<ResolversTypes['StixId']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
@@ -35106,6 +35109,7 @@ export type SystemResolvers<ContextType = any, ParentType extends ResolversParen
   x_opencti_graph_data?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_inferences?: Resolver<Maybe<Array<Maybe<ResolversTypes['Inference']>>>, ParentType, ContextType>;
   x_opencti_lastname?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  x_opencti_reliability?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   x_opencti_stix_ids?: Resolver<Maybe<Array<Maybe<ResolversTypes['StixId']>>>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
