@@ -7,7 +7,6 @@ import { UnknownError } from '../config/errors';
 import { telemetry } from '../config/tracing';
 import { cleanupIndicatorPattern, STIX_PATTERN_TYPE } from '../utils/syntax';
 
-console.log('on arrive dans la partie chiante de python');
 const PYTHON_EXECUTOR = nconf.get('app:python_execution') ?? 'native';
 const USE_NATIVE_EXEC = PYTHON_EXECUTOR === 'native';
 
@@ -18,7 +17,6 @@ const CHECK_INDICATOR_SCRIPT = { fn: 'check_indicator', py: pyCheckIndicator };
 
 const pyCreatePattern = py.importSync('./src/python/runtime/stix2_create_pattern.py');
 const CREATE_PATTERN_SCRIPT = { fn: 'stix2_create_pattern', py: pyCreatePattern };
-console.log('on a passé la partie chiante de python');
 // region child
 export const execChildPython = async (context, user, scriptPath, scriptName, args, stopCondition) => {
   const execPythonTestingProcessFn = async () => {
