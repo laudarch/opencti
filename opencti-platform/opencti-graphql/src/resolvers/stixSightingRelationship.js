@@ -32,7 +32,7 @@ import { elBatchIds } from '../database/engine';
 import { findById as findStatusById, getTypeStatuses } from '../domain/status';
 import { addOrganizationRestriction, batchObjectOrganizations, removeOrganizationRestriction } from '../domain/stix';
 import { batchCreators } from '../domain/user';
-import { batchExtractRelationshipRepresentativeCreators } from "../database/utils";
+import { batchExtractRelationshipRepresentativeCreators } from '../database/utils';
 
 const createdByLoader = batchLoader(batchCreatedBy);
 const markingDefinitionsLoader = batchLoader(batchMarkingDefinitions);

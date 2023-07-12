@@ -22,7 +22,7 @@ import {
 import { schemaRelationsRefDefinition } from '../schema/schema-relationsRef';
 import { creators } from '../schema/attribute-definition';
 import { isStixRefRelationship } from '../schema/stixRefRelationship';
-import { elFindByIds } from "./engine";
+import { elFindByIds } from './engine';
 
 export const ES_INDEX_PREFIX = conf.get('elasticsearch:index_prefix') || 'opencti';
 const rabbitmqPrefix = conf.get('rabbitmq:queue_prefix');
@@ -246,12 +246,12 @@ export const inferIndexFromConceptType = (conceptType, inferred = false) => {
 };
 
 export const extractRelationshipRepresentativeName = async (context, user, relationshipData) => {
-  const ids = await elFindByIds(context, user, [relationshipData.fromId, relationshipData.toId], {toMap: true})
+  const ids = await elFindByIds(context, user, [relationshipData.fromId, relationshipData.toId], { toMap: true });
 
-  let mainValue = `${extractEntityRepresentativeName(ids[relationshipData.fromId])} ➡️ ${extractEntityRepresentativeName(ids[relationshipData.toId])}`;
+  const mainValue = `${extractEntityRepresentativeName(ids[relationshipData.fromId])} ➡️ ${extractEntityRepresentativeName(ids[relationshipData.toId])}`;
 
   return String(mainValue);
-}
+};
 
 export const extractRelationshipRepresentative = async (context, user, relationshipData) => {
   return {
@@ -300,7 +300,7 @@ export const extractEntityRepresentativeName = (entityData) => {
   } else if (isNotEmptyField(entityData.name)) {
     mainValue = entityData.name;
     if (isNotEmptyField(entityData.x_mitre_id)) { // Attack Pattern
-      mainValue = `[${entityData.x_mitre_id}] ` + mainValue;
+      mainValue = `[${entityData.x_mitre_id}] ${mainValue}`;
     }
   } else if (isNotEmptyField(entityData.description)) {
     mainValue = entityData.description;
@@ -311,7 +311,7 @@ export const extractEntityRepresentativeName = (entityData) => {
   }
 
   return String(mainValue);
-}
+};
 export const extractEntityRepresentativeDescription = (entityData) => {
   let secondValue;
 
@@ -329,7 +329,7 @@ export const extractEntityRepresentativeDescription = (entityData) => {
   }
 
   return String(secondValue);
-}
+};
 export const extractEntityRepresentative = (entityData) => {
   return {
     main: extractEntityRepresentativeName(entityData),

@@ -38,7 +38,7 @@ import { batchCreators } from '../domain/user';
 import { stixCoreRelationshipOptions } from '../schema/stixCoreRelationship';
 import { addOrganizationRestriction, batchObjectOrganizations, removeOrganizationRestriction } from '../domain/stix';
 import { stixCoreObjectsExportPush } from '../domain/stixCoreObject';
-import { batchExtractRelationshipRepresentativeCreators } from "../database/utils";
+import { batchExtractRelationshipRepresentativeCreators } from '../database/utils';
 
 const loadByIdLoader = batchLoader(elBatchIds);
 const createdByLoader = batchLoader(batchCreatedBy);
